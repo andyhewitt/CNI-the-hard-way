@@ -14,7 +14,7 @@ docker cp ./cni.kubeconfig calico-kind-worker4:/cni.kubeconfig
 ```
 
 ```
-calicoctl --alow-version-mismatch apply -f - <<EOF
+calicoctl --allow-version-mismatch apply -f - <<EOF
 kind: BGPPeer
 apiVersion: projectcalico.org/v3
 metadata:
@@ -24,7 +24,7 @@ spec:
   peerSelector: has(calico-route-reflector)
 EOF
 
-calicoctl --alow-version-mismatch apply -f - <<EOF
+calicoctl --allow-version-mismatch apply -f - <<EOF
 kind: BGPPeer
 apiVersion: projectcalico.org/v3
 metadata:
@@ -34,7 +34,7 @@ spec:
   peerSelector: has(calico-route-reflector)
 EOF
 
-calicoctl --alow-version-mismatch create -f - <<EOF
+calicoctl --allow-version-mismatch create -f - <<EOF
  apiVersion: projectcalico.org/v3
  kind: BGPConfiguration
  metadata:
