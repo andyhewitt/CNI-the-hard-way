@@ -1,0 +1,58 @@
+- apiVersion: projectcalico.org/v3
+  kind: Node
+  metadata:
+    annotations:
+      projectcalico.org/kube-labels: '{"beta.kubernetes.io/arch":"amd64","beta.kubernetes.io/os":"linux","kubernetes.io/arch":"amd64","kubernetes.io/hostname":"kind-worker","kubernetes.io/os":"linux"}'
+    creationTimestamp: null
+    labels:
+      calico-route-reflector: ''
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/os: linux
+      kubernetes.io/arch: amd64
+      kubernetes.io/hostname: kind-worker
+      kubernetes.io/os: linux
+    name: kind-worker
+  spec:
+    addresses:
+    - address: 172.18.0.6/16
+      type: CalicoNodeIP
+    - address: 172.18.0.6
+      type: InternalIP
+    bgp:
+      routeReflectorClusterID: 224.0.0.1
+      ipv4Address: 172.18.0.6/16
+    orchRefs:
+    - nodeName: kind-worker
+      orchestrator: k8s
+  status:
+    podCIDRs:
+    - 192.168.2.0/24
+- apiVersion: projectcalico.org/v3
+  kind: Node
+  metadata:
+    annotations:
+      projectcalico.org/kube-labels: '{"beta.kubernetes.io/arch":"amd64","beta.kubernetes.io/os":"linux","kubernetes.io/arch":"amd64","kubernetes.io/hostname":"kind-worker2","kubernetes.io/os":"linux"}'
+    creationTimestamp: null
+    labels:
+      calico-route-reflector: ''
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/os: linux
+      kubernetes.io/arch: amd64
+      kubernetes.io/hostname: kind-worker2
+      kubernetes.io/os: linux
+    name: kind-worker2
+  spec:
+    addresses:
+    - address: 172.18.0.3/16
+      type: CalicoNodeIP
+    - address: 172.18.0.3
+      type: InternalIP
+    bgp:
+      routeReflectorClusterID: 224.0.0.1
+      ipv4Address: 172.18.0.3/16
+    orchRefs:
+    - nodeName: kind-worker2
+      orchestrator: k8s
+  status:
+    podCIDRs:
+    - 192.168.4.0/24
