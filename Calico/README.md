@@ -13,7 +13,7 @@ docker cp ./cni.kubeconfig calico-kind-worker3:/cni.kubeconfig
 docker cp ./cni.kubeconfig calico-kind-worker4:/cni.kubeconfig
 ```
 
-```
+```bash
 calicoctl --allow-version-mismatch apply -f - <<EOF
 kind: BGPPeer
 apiVersion: projectcalico.org/v3
